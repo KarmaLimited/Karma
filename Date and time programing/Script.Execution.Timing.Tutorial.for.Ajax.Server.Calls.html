@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Script Execution Timing Tutorial for Ajax Server Calls</title>
+</head>
+<body>
+	<script>
+		//good for timing how long a time a server function takes
+
+		function anyFunc() {
+			// getTime() - returns local total milliseconds for the date object referenced from Jan 1, 1970
+			var ms = new Date().getTime();
+
+			//Here is where you run heavy js or server ajax calls that you want to time
+
+			var execTime = (new Date().getTime() - ms) / 1000; //gets the seconds
+			alert(execTime);
+
+		}
+		anyFunc();
+	</script>
+</body>
+</html>

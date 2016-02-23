@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Trigger CSS Transitions to Control Animations</title>
+	<style>
+		div#box1 {
+			background: #9dceff;
+			width: 400px;
+			height: 200px;
+		}
+
+		div#box2 {
+			background: yellow;
+			width: 400px;
+			height: 200px;
+		}
+
+		div#box3 {
+			background: red;
+			width: 400px;
+			height: 200px;
+		}
+
+		div#box4 {
+			background: #9DCEFF;
+			width: 400px;
+			height: 200px;
+			position: absolute;
+			top: 685px;
+			margin: 10px;
+			left: -400px;
+		}
+	</style>
+
+	<script>
+		/* 1 */
+		function changeBG(el, clr) {
+			var elem = document.getElementById(el);		//delay func
+			elem.style.transition = "background 1.0s linear 0s";
+			elem.style.background = clr;
+		}
+		/* 2 */
+		function fadeOut(el) {
+			var elem = document.getElementById(el);		//delay func
+			elem.style.transition = "Opacity 1.0s linear 0s";
+			elem.style.opacity = 0;
+		}
+		function fadeIn(el) {
+			var elem = document.getElementById(el);		//delay func
+			elem.style.transition = "Opacity 1.0s linear 0s";
+			elem.style.opacity = 1;
+		}
+
+		/* 3 */
+		function slideOpen(el) {
+			var elem = document.getElementById(el);
+			elem.style.transition = "height 0.2s linear 0s";
+			elem.style.height = "200px";
+		}
+		function slideClosed(el) {
+			var elem = document.getElementById(el);
+			elem.style.transition = "height 0.2s linear 0s";
+			elem.style.height = "0px";
+			elem.style.overflow = "hidden";
+		}
+
+		/* 4 */
+		function slideIn(el) {
+			var elem = document.getElementById(el);
+			elem.style.transition = "left 0.5s ease-in 0s";
+			elem.style.left = "0px";
+		}
+		function slideOut(el) {
+			var elem = document.getElementById(el);
+			elem.style.transition = "left 0.5s ease-out 0s";
+			elem.style.left = "-400px";
+		}
+	</script>
+</head>
+<body>
+	<div id="firstdiv">
+		<button onclick="changeBG('box1', '#F0F');">Magenta</button>
+		<button onclick="changeBG('box1','#0C0')">Green</button>
+		<button onclick="changeBG('box1','#9DCEFF')">Restore</button>
+		<div id="box1">Content.............</div>
+	</div>
+
+	<div id="seconddiv">
+		<button onclick="fadeOut('box2');">Fade out</button>
+		<button onclick="fadeIn('box2');">Fade in</button>
+		<div id="box2">Content in box 1 ...</div>
+	</div>
+	<div id="thirddiv">
+		<button onclick="slideClosed('box3');">slideClosed</button>
+		<button onclick="slideOpen('box3');">slideOpen</button>
+		<div id="box3">Content in box 1 ...</div>
+	</div>
+	<div id="fourthdiv">
+		<button onclick="slideIn('box4');">slide in</button>
+		<button onmouseover="slideOut('box4');">slide out</button>
+		<div id="box4">Content in box 4 ...</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Typing Text Animation Tutorial Array Loop Programming</title>
+	<style>
+		div#myTypingText {
+			background:url(http://www.planwallpaper.com/static/images/cool-background.jpg);
+			width: 700px;
+			height: 120px;
+			padding: 12px;
+			color: #FFF;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 16px;
+			line-height: 1.5em;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="myTypingText"></div>
+
+	<script>
+		var myString = "Hello everybody my name is Stefan and I'am a developer from Stockholm, Sweden. This is a bit of code that creates a typing text animation! I hope you all have a very nice day :)";
+		var myArray = myString.split("");
+		var loopTimer;
+
+		function frameLooper() {
+			if (myArray.length > 0) {
+				document.getElementById("myTypingText").innerHTML += myArray.shift();
+			} else {
+				clearTimeout(loopTimer);
+			}
+			loopTimer = setTimeout('frameLooper()', 70);
+
+		}
+		frameLooper();
+
+		function hide() { 
+		/*	<input type="text" id="texttest" /><button onclick="frameLooper1()">Send text</button>	
+		function frameLooper1() {
+			var textinput = document.getElementById("texttest").value;
+			myString = textinput;
+			myArray = myString.split("");
+			if (myArray.length > 0) {
+				document.getElementById("myTypingText").innerHTML += myArray.shift();
+			} else {
+				clearTimeout(loopTimer);
+			}
+			loopTimer = setTimeout('frameLooper1()', 70);
+		}
+		if (frameLooper() == false) {
+			frameLooper1();
+		}*/
+		}
+	</script>
+</body>
+</html>

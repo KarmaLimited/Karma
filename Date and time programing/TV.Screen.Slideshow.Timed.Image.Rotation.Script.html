@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>IPad Screen Slideshow</title>
+	<style>
+		#myTV {
+			background-image: url(img/Ipad.png);
+			width: 577px;
+			height: 720px;
+			padding-top: 20px;
+		}
+
+		#myScreen {
+			width: 435px;
+			height: 583px;
+			/*border: 1px dashed blue;*/
+			margin: 56px 0 0 72px;
+		}
+
+			#myScreen > img {
+				width: 435px;
+				height: 583px;
+				border-radius: 5px;
+			}
+	</style>
+</head>
+<body>
+	<div id="myTV">
+		<div id="myScreen"></div>
+	</div>
+	<script>
+		var myScreen = document.getElementById('myScreen');
+		var myPics = ['one.jpg', 'two.jpg', 'three.jpg'];
+		var totalPics = myPics.length;
+		var i = 0;
+		function loop() {
+			if (i > (totalPics - 1)) {
+				i = 0;
+			}
+			myScreen.innerHTML = '<img src="img/' + myPics[i] + '">';
+			i++;
+			loopTimer = setTimeout('loop()', 3000);
+		}
+		loop();
+	</script>
+</body>
+</html>

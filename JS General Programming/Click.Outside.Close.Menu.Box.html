@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Click Outside Close Menu Box</title>
+	<style>
+		.boxes {
+			position: absolute;
+			width: 260px;
+			height: 260px;
+			background: red; /* For browsers that do not support gradients */
+			padding: 20px;
+			display: none;
+			border-radius: 15px;
+		
+		}
+
+		div#box1 {
+			top: 10px;
+			left: 10px;
+			background: -webkit-linear-gradient(left, blue, lightgray); /* For Safari 5.1 to 6.0 */
+			background: -o-linear-gradient(left, blue, lightgray); /* For Opera 11.1 to 12.0 */
+			background: -moz-linear-gradient(left, blue, lightgray); /* For Firefox 3.6 to 15 */
+			background: linear-gradient(left, blue, lightgray); /* Standard syntax */
+				border-right: 2px solid gray;
+		}
+
+		div#box2 {
+			top: 10px;
+			left: 300px;
+			background: -webkit-linear-gradient(right, blue, lightgray); /* For Safari 5.1 to 6.0 */
+			background: -o-linear-gradient(left, right, lightgray); /* For Opera 11.1 to 12.0 */
+			background: -moz-linear-gradient(right, blue, lightgray); /* For Firefox 3.6 to 15 */
+			background: linear-gradient(right, blue, lightgray); /* Standard syntax */
+				border-left: 2px solid gray;
+		}
+
+		div#box3 {
+			top: 10px;
+			left: 600px;
+			background: -webkit-linear-gradient(blue, lightgray); /* For Safari 5.1 to 6.0 */
+			background: -o-linear-gradient(blue, lightgray); /* For Opera 11.1 to 12.0 */
+			background: -moz-linear-gradient(blue, lightgray); /* For Firefox 3.6 to 15 */
+			background: linear-gradient(blue, lightgray); /* Standard syntax */
+				border-bottom: 2px solid gray;
+		}
+	</style>
+	<script>
+		var boxArray = ['box1', 'box2', 'box3']
+		window.addEventListener('mouseup', function (event) {
+			//loop thru boxes
+			for (var i = 0; i < boxArray.length; i++) {
+				var box = document.getElementById(boxArray[i]);
+				//child element of the box
+				if (event.target != box && event.target.parentNode != box) {
+					box.style.display = 'none';
+				}
+			}
+		});
+	</script>
+</head>
+<body>
+	<div id="box1" class="boxes">
+		<h2>Pop Out Interface 1</h2>
+	</div>
+	<div id="box2" class="boxes">
+		<h2>Pop Out Interface 2</h2>
+	</div>
+	<div id="box3" class="boxes">
+		<h2>Pop Out Interface 3</h2>
+	</div>
+	<h2>Page Content...</h2>
+	<button onclick="document.getElementById('box1').style.display='block'">Pop-Out Interface</button>
+	<button onclick="document.getElementById('box2').style.display='block'">Pop-Out Interface</button>
+	<button onclick="document.getElementById('box3').style.display='block'">Pop-Out Interface</button>
+</body>
+</html>

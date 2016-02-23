@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Dynamic lorem ipsum with random line generator</title>
+	<style>
+		body {
+		margin:0;
+		background:url(http://2.bp.blogspot.com/-RHKPJHnENSQ/T9eAEIHu_iI/AAAAAAAAAKg/q4Gugs5bqwk/s1600/the-joker.jpg);
+		overflow:hidden;
+		}
+	</style>
+	<script>
+		var random = Math.ceil(Math.random() * 10);
+		var ipsum = "No, no, no, I kill the bus driver. Never start with the head. The victim gets all fuzzy. He can't feel the next... See? it's simple. We, uh, kill the Batman. Do I really look like a guy with a plan?	Oh, hee-hee, aha. Ha, ooh, hee, ha-ha, ha-ha. And I thought my jokes were bad. How about a magic trick? I'm gonna make this pencil disappear. Ta-da!";
+		for (var i = 0; i < random; i++) {
+			if (i % 4 == 0 && i > 1) {
+				document.write("<br><br>");
+			} else {
+				document.write("<br>");
+			}
+			document.write("<div style='margin:0 auto; width:80%'><span style='font-size:20px;color:white;'>"+ipsum+"</span></div>");
+		}
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>In Place Editing CMS Development HTML JavaScript </title>
+	<style>
+
+	</style>
+	<script>
+		function makeEditable(div) {
+			div.style.border = "1px solid #000";
+			div.style.padding = "20px";
+			div.contentEditable = true;
+		}
+		function makeReadOnly(div) {
+			div.style.border = "none";
+			div.style.padding = "0px";
+			div.contentEditable = false;
+			alert("Run Ajax POST request here to save the div.innerHTML \n or div.textContent to the database.")
+		}
+	</script>
+</head>
+<body>
+	<h2>This is a web page</h2>
+	<div ondblclick="makeEditable(this)" onblur="makeReadOnly(this)">
+		div containing content to be managed by the user...
+	</div>
+</body>
+</html>

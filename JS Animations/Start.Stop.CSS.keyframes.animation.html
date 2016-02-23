@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Start Stop CSS keyframes animation</title>
+	<style>
+		#ball {
+			background: url(http://flamesngames.co.uk/img/product_images/image/prodDetail/play-bounce-juggling-ball-red-2075.jpg);
+			width: 395px;
+			height: 288px;
+		}
+
+@keyframes ball-bounce {
+	from { background-position: 0px; }
+	to { background-position: -600px; }
+}
+
+	</style>
+
+</head>
+<body>
+	<div id="ball"></div>
+	<button id="startbtn">Start</button>
+	<button id="stopbtn">Stop</button>
+	<script>
+		startbtn.addEventListener("click", function () {
+			ball.style.animation = "ball_bounce 0.7s steps(6) infinite";
+			ball.style.webkitAnimation = "ball-bounce 0.7s steps(6) infinite";
+		});
+		stopbtn.addEventListener("click", function () {
+			ball.style.animation = "";
+			ball.style.webkitAnimation = "";
+		});
+	</script>
+</body>
+</html>

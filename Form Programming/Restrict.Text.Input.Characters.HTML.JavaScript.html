@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Restrict Text Input Characters HTML JavaScript </title>
+
+	<script>
+		function lettersOnly(input) {
+			var regex = /[^a-ö]/gi
+			input.value = input.value.replace(regex, "");
+		}
+	</script>
+</head>
+<body style="text-align:center;">
+	<br />
+	<input style="margin-right:15px;" id="firstname" placeholder="First Name" onkeyup="lettersOnly(this)" />
+	<input id="lastname" placeholder="Last Name" onkeydown="lettersOnly(this)" />
+</body>
+</html>

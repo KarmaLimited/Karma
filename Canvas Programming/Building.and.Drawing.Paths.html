@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>CANVAS Building and Drawing Paths</title>
+	<style>
+		body {	margin: 40px; background: #666;	}
+		#my_canvas { background: #FFF; border: #000 1px solid;}
+	</style>
+	<script>
+		function draw() {
+			var ctx = document.getElementById('my_canvas').getContext('2d');
+		
+			/*
+			ctx.beginPath(); 		//resets current default path
+			ctx.moveTo(50, 50);		//creates a new subpath with the given point
+			ctx.lineTo(250, 50);	//creates a new line along the current path
+			ctx.lineTo(250, 150);
+			ctx.lineTo(50, 150);
+			ctx.fill();				// Fills subpaths on the current default path
+			ctx.closePath();		// Close current path
+			ctx.stroke();			//Strokes the current default path
+			//alert(ctx.isPointInPath(75, 75)); // Determines if a specified point is in a path -- returns true or false
+	
+			ctx.rect(50, 50, 100, 100);	//skapar en rektangel ctx.rect(x, y, w, h);
+			ctx.clip(); //klipper bort den andra rektangeln från allt område utanför den första
+			ctx.rect(0, 0, 100, 100);
+			ctx.arc(150, 150, 100, 0, Math.PI * 2, false);
+	
+			ctx.moveTo(50, 50);
+			ctx.lineTo(300, 50);
+			ctx.arcTo(390, 50, 390, 100, 50);//arcTo(x1,y1,x2,y2,radius)
+			ctx.lineTo(300, 200);
+			ctx.stroke();		
+
+			ctx.moveTo(50, 50);
+			ctx.lineTo(300, 50);
+			ctx.quadraticCurveTo(400, 10, 350, 150); // quadraticCurveTo(cpx, cpy, x, y) cp = bezier control point
+			ctx.lineTo(300, 200);
+			ctx.stroke();*/
+
+			ctx.moveTo(50, 50);
+			ctx.lineTo(300, 50);
+			ctx.bezierCurveTo(280, 200, 300, 10, 400,100); //(cp1x, cp1y, cp2x, cp2y, x, y)
+			ctx.lineTo(390, 200);
+			ctx.stroke();
+		}
+
+		window.onload = draw;
+	</script>
+</head>
+<body>
+	<canvas id="my_canvas" width="500" height="350"></canvas>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Read Mouse Coordinates Pointer Position</title>
+	<style>
+		span {
+		color:black;
+		padding:10px;
+		font-size:50px;
+		}
+
+	</style>
+</head>
+	<script>
+		function readMouseMove(e) {
+			var result_x = document.getElementById("x_result");
+			var result_y = document.getElementById("y_result");
+			result_x.innerHTML = e.clientX;
+			result_y.innerHTML = e.clientY;
+			var t = document.getElementById("tjo");
+			if (result_y.innerHTML > 100 && result_y.innerHTML < 200) {
+				t.style.background = "blue";
+				t.style.width = "40%";
+			} else if (result_y.innerHTML > 200 && result_y.innerHTML < 500) {
+				t.style.background = "green";
+				t.style.width = "60%";
+			} else if (result_y.innerHTML > 500 && result_y.innerHTML < 600) {
+				t.style.background = "lightgray";
+				t.style.width = "80%";
+			} else {
+				t.style.background = "white";
+			}
+		}
+		window.document.onmousemove = readMouseMove;
+	</script>
+<body>
+	<div id="tjo">
+	<h1>Document that reads mouse movement</h1>
+	<span id="x_result">0</span> x-axis<br />
+	<span id="y_result">0</span> y-axis
+		</div>
+</body>
+</html>

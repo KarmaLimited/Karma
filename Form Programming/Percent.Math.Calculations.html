@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Percent Math Calculations</title>
+	<style>
+		div#bar1 {
+			width: 700px;
+			height: 40px;
+			background: #EEE;
+		}
+
+			div#bar1 > div {
+				position: relative;
+				width: 10px;
+				height: 40px;
+				background: #000;
+			}
+	</style>
+	<script>
+		//Find out how much of a percentage one number is of another number
+		
+		var price = 100;
+		var sale = 25;
+		var savings = (price * sale) / 100;
+		var saleprice = price - savings;
+
+		document.write("<div style='text-align:center'><span style='color:green'>Find out how much of a percentage one number is of another number</span> <br>" + "Original Price: $" + price.toFixed(2) + "<br/>");
+		document.write("Sale: $" + sale + "%<br/>");
+		document.write("Sale Price: $" + saleprice.toFixed(2) + "<br/>");
+		document.write("Savings: $" + savings.toFixed(2) + "<br/><br/><br/><br/>");
+		
+
+		//Calculate the difference as a percentage between two values
+		var v1 = 160;
+		var v2 = 80;
+		var diffPercent = (((v1 - v2) / v1) * 100).toFixed(2);
+		document.write("<span style='color:green'>Calculate the difference as a percentage between two values</span> <br>" + v2 + " is " + diffPercent + "% smaller than " + v1 + "<br/><br/><br/><br/></div>");
+
+	</script>
+
+</head>
+<body>Positioning elements by percent according to dynamic values
+	<div id="bar1">
+  <div></div>
+		<script>
+			//Positioning elements by percent according to dynamic values
+			var bar1 = document.getElementById("bar1");
+			var percent = 50;
+			var newleft = Math.round((bar1.offsetWidth * percent) / 100);
+			bar1.children[0].style.left = newleft - bar1.children[0].offsetWidth/2 + "px";
+		</script>
+</div>
+</body>
+</html>

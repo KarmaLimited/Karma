@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Dynamic Select Year List Script HTML Form Elements</title>
+</head>
+<body>
+	<select id="year" name="year">
+		<script>
+			var myDate = new Date();
+			var year = myDate.getFullYear();
+			for (var i = 1900; i <= year; i++){
+				document.write('<option value="' + i + '">' + i + '</option>');
+			}
+		</script>
+	</select>
+</body>
+</html>

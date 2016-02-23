@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Image Zoom Effect Animation CSS</title>
+	<style>
+		.pic {
+			height: 50px;
+			width: 50px;
+		}
+		.picbig {
+			position:absolute;
+			width:0px;
+			-webkit-transition:width 0.3s linear 0s;
+			transition:width 0.3s linear 0s;
+			z-index:10;
+		}
+
+		.pic:hover + .picbig {
+		width:200px;
+		}
+	</style>
+	<script>
+		function zoomPic() {
+			var x = document.getElementById(elem).nextSibling;
+			x.style.width = "200px";
+		
+		}
+	</script>
+</head>
+<body>
+	<img class="pic" id="butterfly" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSTxG4ueS4sNd-9aqmlfnEIvTG6sWACXSmXDbyHzqfrO7ur8Fg2yA" alt="butterfly" onclick="zoomPic(this)" />
+	<img class="picbig" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSTxG4ueS4sNd-9aqmlfnEIvTG6sWACXSmXDbyHzqfrO7ur8Fg2yA" alt="" />
+	
+	<img class="pic" src="https://s-media-cache-ak0.pinimg.com/236x/ff/27/d7/ff27d73aea2aeb029bcd91f62d641da4.jpg" alt="blueowl" />
+	<img class="picbig" src="https://s-media-cache-ak0.pinimg.com/236x/ff/27/d7/ff27d73aea2aeb029bcd91f62d641da4.jpg" alt="" />
+	
+	<img class="pic" src="http://25.media.tumblr.com/tumblr_m699owjU4O1rtkfkpo1_500.jpg" alt="fatowl" />
+	<img class="picbig" src="http://25.media.tumblr.com/tumblr_m699owjU4O1rtkfkpo1_500.jpg" alt="" />
+</body>
+</html>

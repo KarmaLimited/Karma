@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>2D Context Object and Rectangle Methods</title>
+	<style>
+		body {margin:40px; background:#666;		}
+		#my_canvas {background:#FFF; border:#000 1px solid;	}
+	
+		</style>
+	<script>
+		function draw() {
+			var ctx = document.getElementById("my_canvas").getContext('2d');
+			//alert(ctx.canvas.id+" | " + ctx.canvas.width + " | " + ctx.canvas.height);
+
+			ctx.fillStyle = "magenta";
+
+			//ctx.fillRect(x,y,w,h);
+			ctx.fillRect(20, 20, 100, 100);
+			ctx.fillRect(200, 200, 50, 50);
+			ctx.strokeRect(20, 20, 100, 100);
+			ctx.strokeRect(200, 200, 50, 50);
+
+			//ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+			//ctx.clearRect(0, 0, 100, 100);
+
+		}
+		window.onload = draw;
+	</script>
+</head>
+<body>
+<canvas id="my_canvas" width="410" height="300"></canvas>
+</body>
+</html>

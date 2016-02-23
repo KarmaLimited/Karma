@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-12" />
+	<title>Animated Repeating Tile Background keyframes </title>
+	<style>
+		body {
+			margin: 48px;
+			background: black;
+			font-family: Arial,Haettenschweiler, sans-serif;
+		}
+
+		div#banner {
+			width: 1000px;
+			height: 200px;
+			margin: 0 auto;
+			border: #639 1px solid;
+			overflow: hidden;
+		}
+
+			div#banner > #banner_backdrop {
+				position: relative;
+				background: url(http://www.silenciobarnes.com/wp-content/uploads/a/a-warm-ceramic-tile-art-supplies-ceramic-tile-art-projects-for-kids-ceramic-white-tile-for-art-projects-ceramic-tile-art-project-pinterest-ceramic-tiles-art-projects-objective-diy-ceramic-tile-ar.jpg) repeat-x; /*393 × 325* offline- mg.jpg*/
+				width: 1320px;
+				height: 200px;
+				overflow: hidden;
+				-webkit-animation:backdrop_roll linear 6s infinite;
+				animation:backdrop_roll linear 6s infinite;
+			}
+		@-webkit-keyframes backdrop_roll {from {right:0px;}	to {right:530px;}}
+		@keyframes backdrop_roll {from {right:0px;}	to {right:230px;}}
+			div#banner > #banner_content {
+				position: relative;
+				width: 96%;
+				height: 160px;
+				margin: 20px auto;
+				top: -200px;
+				color: #FFF;
+				font-size: 27px;
+			}
+	</style>
+
+
+</head>
+<body>
+	<div id="banner">
+		<div id="banner_backdrop"></div>
+		<div id="banner_content">
+			Content and stuff like that
+		</div>
+
+	</div>
+</body>
+</html>

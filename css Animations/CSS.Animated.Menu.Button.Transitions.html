@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<title>CSS Animated Menu Button Transitions</title>
+	<style>
+		body {
+			background: black;
+			margin: 0px;
+		}
+
+		#menubar1 {
+			padding: 24px;
+			border: gray 1px dashed;
+		}
+
+			#menubar1 > a {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 17px;
+				background: #333;
+				padding: 12px 24px;
+				color: #999;
+				margin-right: 10px;
+				text-decoration: none;
+				border-radius: 3px;
+				transition: background 0.3s linear 0s, color 0.3s linear 0s;
+			}
+
+				#menubar1 > a:hover {
+					background: darkred;
+					color: #FFF;
+				}
+	</style>
+</head>
+<body>
+	<nav id="menubar1">
+		<a href="#">Home</a>
+		<a href="#">About us</a>
+		<a href="#">Services</a>
+		<a href="#">Staff</a>
+		<a href="#">Contact</a>
+	</nav>
+</body>
+</html>

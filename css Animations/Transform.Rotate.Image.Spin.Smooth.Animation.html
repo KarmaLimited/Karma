@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Transform Rotate Image Spin Smooth Animation</title>
+	<style>
+		img {
+			height: 200px;
+			width: 200px;
+			margin: 0 auto;
+		}
+	</style>
+	<script>
+		var looper; var degrees = 0;
+		function rotateAnimation(el, speed) {
+			var elem = document.getElementById(el);
+			if (navigator.userAgent.match("Chrome")) {
+				elem.style.WebkitTransform = "rotate(" + degrees + "deg)";
+			} else if (navigator.userAgent.match("Firefox")) {
+				elem.style.MozTransform = "rotate(" + degrees + "deg)";
+			} else if (navigator.userAgent.match("MSIE")) {
+				elem.style.msTransform = "rotate(" + degrees + "deg)";
+			} else if (navigator.userAgent.match("Opera")) {
+				elem.style.OTransform = "rotate(" + degrees + "deg)";
+			} else {
+				elem.style.transform = "rotate(" + degrees + "deg)";
+			}
+			looper = setTimeout('rotateAnimation(\'' + el + '\',' + speed + ')', speed);
+			degrees++;
+			if (degrees > 359) {
+				degrees = 1;
+			}
+			document.getElementById("status").innerHTML = "Currently rotating cog (" + degrees + " degrees)";
+		}
+
+	</script>
+</head>
+<body><div style="margin:0 auto;">
+	<img id="img1" src="http://www.franticstamper.com/assets/images/products/crafters%20workshop/cw-tcw-2025.jpg" alt="cog"/>
+		<h2 style="width:500px; margin-top:30px; color:green; "margin:0 auto;" id="status"></h2>
+	<script>rotateAnimation("img1", 35);</script>
+		<!--<script>rotateAnimation("status", 20);</script>-->
+
+	</div>
+</body>
+</html>

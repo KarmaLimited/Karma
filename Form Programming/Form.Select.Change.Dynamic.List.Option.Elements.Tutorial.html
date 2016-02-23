@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Form Select Change Dynamic List Option Elements</title>
+	<style>
+		body {
+			margin: 0px;
+		}
+
+		#container {
+			float: right;
+			background: url(img/SelectIntroPic.jpg) no-repeat;
+			padding: 350px 350px 150px 350px;
+			margin: 0 auto;
+		}
+	</style>
+	<script>
+		function populate(s1, s2) {
+			var s1 = document.getElementById(s1);
+			var s2 = document.getElementById(s2);
+
+			//empty before new list is created
+			s2.innerHTML = "";
+			if (s1.value == "Chevy") {
+				var optionArray = ["|", "camaro|Camaro", "corvette|Corvette", "impala|Impala"];
+			} else if (s1.value == "Dodge") {
+				var optionArray = ["|", "avenger|Avenger", "challenger|Challenger", "charger|Charger"];
+			} else if (s1.value == "Ford") {
+				var optionArray = ["|", "mustang|Mustang", "shelby|Shelby"];
+			}
+			for (var option in optionArray) {
+				var pair = optionArray[option].split("|");
+				var newOption = document.createElement("option");
+				newOption.value = pair[0];
+				newOption.innerHTML = pair[1];
+				s2.options.add(newOption);
+			}
+		}
+
+
+	</script>
+</head>
+<body>
+	<div id="container">
+		<div style="float:left;">
+		<h2>choose your car</h2>
+		<hr />
+		Choose car model:				<!--onchange är nyckeln > parameters kan också vara 'slct1','slct2'-->
+		<select id="slct1" name="slct1" onchange="populate(this.id, 'slct2')">
+			<option value=""></option>
+			<option value="Chevy">Chevy</option>
+			<option value="Dodge">Dodge</option>
+			<option value="Ford">Ford</option>
+		</select>
+		<hr />
+		Choose car model:
+		<select id="slct2" name="slct2"></select>
+
+		</div>
+	</div>
+</body>
+</html>

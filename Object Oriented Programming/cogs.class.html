@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>cogs</title>
+	<style>
+		body {
+			margin: 10% 10% 10% 10%;
+			/*background: url(img/prosncons.jpg) no-repeat left top;*/
+			background-size: 80%;
+		}
+		body > div > img {
+		margin: -5px -10px -5px -5px; 
+		}
+			body > div > img:hover {
+				cursor:pointer;
+				
+			}
+		#img4 {
+		margin: -47px -0% -240px -680px;
+		}
+	</style>
+	<script>
+		/* denna metod skapar en kollision som gör att alla kuggarna går åt samma håll
+				var d = 0;
+				
+				function animate(el,dir) { 
+				var elem = document.getElementById(el)
+				if (dir == "ccw") { d--; } else { d++; } 
+				
+				elem.style.WebKitTransform = "rotate(" + d + "deg)"; elem.style.MozTransform = "rotate(" + d + "deg)";	elem.style.msTransform = "rotate(" + d + "deg)";
+				elem.style.OTransform = "rotate(" + d + "deg)";	elem.style.WebKitTransform = "rotate(" + d + "deg)"; elem.style.WebKitTransform = "rotate(" + d + "deg)";
+				elem.style.transform = "rotate(" + d + "deg)";
+				
+				if (d > 359) {d = 1;} else if(d < -359) {d = -1;}
+				setTimeout(function () { animate(el,dir); }, 20);
+		}*/
+
+		/* med obj kan man definera instanserna så kuggen i mitten går åt andra hållet*/
+
+			function rotateAnimation() {
+				this.d = 0;
+				this.animate = function animate(el, dir) {
+					var elem = document.getElementById(el);
+					var me = this;
+
+					if (dir == "ccw") { this.d--; } else { this.d++; }
+
+					elem.style.WebKitTransform = "rotate(" + this.d + "deg)";
+					elem.style.MozTransform = "rotate(" + this.d + "deg)";
+					elem.style.msTransform = "rotate(" + this.d + "deg)";
+					elem.style.OTransform = "rotate(" + this.d + "deg)";
+					elem.style.WebKitTransform = "rotate(" + this.d + "deg)";
+					elem.style.WebKitTransform = "rotate(" + this.d + "deg)";
+					elem.style.transform = "rotate(" + this.d + "deg)";
+						if (this.d > 359) {
+							this.d = 1;
+						} else if (this.d < -359) {
+							this.d = -1;
+						}
+					setTimeout(function () { me.animate(el, dir); }, 20);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>
+	<img id="img1" src="http://odysseybi.com.au/image/background/cog.png" alt="pic1" />
+	<img id="img2" src="http://odysseybi.com.au/image/background/cog.png" alt="pic2" />
+	<img id="img3" src="http://odysseybi.com.au/image/background/cog.png" alt="pic3" />
+	<img id="img4" src="http://odysseybi.com.au/image/background/cog.png" alt="pic4" />
+	<img id="img5" src="http://odysseybi.com.au/image/background/cog.png" alt="pic5" style="margin: 0 0 -241px -16px;" />
+		</div>
+	<script>
+		/*kollsionen skapas animate("img1", "cw"); animate("img2", "ccw"); animate("img3", "cw");*/
+
+		var img1RotateObj = new rotateAnimation();
+		var img2RotateObj = new rotateAnimation();
+		var img3RotateObj = new rotateAnimation();var img4RotateObj = new rotateAnimation();
+		var img5RotateObj = new rotateAnimation();
+
+		img1RotateObj.animate("img1", "cw");
+		img2RotateObj.animate("img2", "ccw");
+		img3RotateObj.animate("img3", "cw");
+		img4RotateObj.animate("img4", "ccw");
+		img5RotateObj.animate("img5", "cw");
+
+	</script>
+</body>
+</html>

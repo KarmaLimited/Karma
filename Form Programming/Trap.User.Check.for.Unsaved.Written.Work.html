@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Trap User Check for Unsaved Written Work</title>
+	<script>
+		window.onbeforeunload = function () {
+			var ta = document.getElementById("user_post");
+			if (ta.value != "") {
+				return "You have unsaved work, are you sure you want to leave?"
+			}
+		}
+
+
+	</script>
+</head>
+<body>
+	<textarea id="user_post"></textarea>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Menu Rotation</title>
+
+	<style type="text/css">
+		body {	background-color: #fff;	font-family: Verdana, Geneva, sans-serif;	}
+		.menu-list {display: block;	background: #fff; text-align: center;}
+			.menu-list li {	display: inline-block;	}
+				.menu-list li a {color: #fff;display: block;text-decoration: none;text-transform: uppercase;font-size: 14px;padding: 15px;}
+
+		.hyper-link {transition: all .07s linear;position: relative;}
+			.hyper-link:hover .box-animation {transform: translateZ(-5px) rotateX(90deg);}
+
+		.box-animation {
+			transition: all .3s ease-out;position: absolute;transform: translatez(-25px);-moz-transform: translatez(-25px);	-webkit-transform: translatez(-25px); transform-style: preserve-3d;
+			top: 0;	left: 0;display: block;	width: 100%;height: 100%;}
+		.front {transform: rotatex(0deg) translatez(35px); -moz-transform: rotatex(0deg) translatez(35px);	-webkit-transform: rotatex(0deg) translatez(35px);	position: absolute;
+			display: block;	width: 100%;height: 100%;top: 0;left: 0;background: #00b0ee;padding: 15px; color: white; box-sizing: border-box;}
+		.back { transform: rotatex(-90deg) translatez(25px); -moz-transform: rotatex(-90deg) translatez(25px);	-webkit-transform: rotatex(-90deg) translatez(25px);
+			position: absolute;	display: block;	width: 100%;height: 100%;top: 0;left: 0;background: #b6cd75;padding: 15px;	color: white;	box-sizing: border-box;	}
+	</style>
+</head>
+<body>
+
+	<div class="menu">
+		<ul class="menu-list">
+			<li><a class="hyper-link" href="#">Home <span class="box-animation"><span class="front">Home</span><span class="back">Home</span> </span></a></li>
+			<li><a class="hyper-link" href="#">Services <span class="box-animation"><span class="front">Services</span><span class="back">Services</span> </span></a></li>
+			<li><a class="hyper-link" href="#">About Us <span class="box-animation"><span class="front">About Us</span><span class="back">About Us</span> </span></a></li>
+			<li><a class="hyper-link" href="#">Contact Us <span class="box-animation"><span class="front">Contact Us</span><span class="back">Contact Us</span> </span></a></li>
+		</ul>
+	</div>
+</body>
+</html>

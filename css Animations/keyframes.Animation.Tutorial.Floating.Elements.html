@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<title>keyframes Animation Tutorial Floating Elements</title>
+	<style>
+		div.bot_container {
+			width: 350px;
+			height: 460px;
+			margin: 0px auto;
+		}
+
+		div.bot {
+			position: relative;
+			background: url(http://www.wpclipart.com/cartoon/aliens/aliens_3/alien_head_T.png);
+			width: 347px;
+			height: 450px;
+			top: 0px;
+			animation:bot_float ease 2s infinite;
+		}
+		/*safari behöver prefix för att keyframes ska fungera > "@-webkit-keyframes" för att det ska funka korrekt lägg till alla prefixer och sen standarden*/
+		@keyframes bot_float {
+			50% {top: 100px;}
+			100% {top: 0px;}
+		}
+
+		div.bot_shadow {
+			position: relative;
+			height: 16px;
+			background: #999;
+			opacity: 0.1;
+			border-radius: 100%;
+			margin: 0px 0px 0px 0px;
+			top: 130px;
+			animation:shadow_react ease 2s infinite;
+		}
+		@keyframes shadow_react {
+			50% {margin:0px 15% 0px 15%; opacity:0.7;}
+			100% {margin:0px 0px 0px 0px; opacity:0.1;}
+		}
+	</style>
+</head>
+<body>
+	<div class="bot_container">
+		<div class="bot">
+			<!--<img> funkar här också även <iframe>-->
+		</div>
+		<div class="bot_shadow"></div>
+	</div>
+</body>
+</html>

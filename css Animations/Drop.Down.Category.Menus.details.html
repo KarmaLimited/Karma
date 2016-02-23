@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Drop Down Category Menus details</title>
+	<style>
+		body {
+		margin:0px;
+		}
+		#leftMenu {
+			width:15%;
+			min-width:150px;
+		}
+			#leftMenu > details {
+			/*to target the details element*/
+			}
+					#leftMenu > details > summary::-webkit-details-marker {
+			/*to remove the arrow in the summary element*/
+			display:none;
+			}
+				#leftMenu > details > summary {
+				cursor:pointer;
+				background:lightblue;
+				margin:6px;
+				padding:18px;
+				}
+					#leftMenu > details > summary:hover {
+					background:lightgray;
+					border:2px solid white;
+					}
+				#leftMenu > details > a {
+				display:block;
+				text-decoration:none;
+				color:#000;
+				font-size:1vw;
+				margin:3px 6px 3px 18px;
+				padding:4px;
+				background-color:lightgray;
+				}
+					#leftMenu > details > a:hover {
+					font-weight:bold;
+					background:#DFEFFF;
+					}
+					#leftMenu > details > a:before {
+					content: "- " ;
+					/*content:url();*/
+					}
+	</style>
+</head>
+<body>
+	<div id="leftMenu">
+		<details>
+			<summary>Meny Item 1</summary>
+			<a href="#">Subcategory A</a>
+			<a href="#">Subcategory B</a>
+			<a href="#">Subcategory C</a>
+		</details>
+		<details>
+			<summary>Meny Item 2</summary>
+			<a href="#">Subcategory A</a>
+			<a href="#">Subcategory B</a>
+			<a href="#">Subcategory C</a>
+		</details>
+		<details>
+			<summary>Meny Item 3</summary>
+			<a href="#">Subcategory A</a>
+			<a href="#">Subcategory B</a>
+			<a href="#">Subcategory C</a>
+		</details>
+		<details>
+			<summary>Meny Item 4</summary>
+			<a href="#">Subcategory A</a>
+			<a href="#">Subcategory B</a>
+			<a href="#">Subcategory C</a>
+		</details>
+	</div>
+</body>
+</html>

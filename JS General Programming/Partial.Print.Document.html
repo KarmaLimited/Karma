@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Partial Print Document</title>
+	<script>
+		function printContent(el) {
+			var restorepage = document.body.innerHTML;
+			var printContent = document.getElementById(el).innerHTML;
+			document.body.innerHTML = printContent;
+			window.print();
+			document.body.innerHTML = restorepage;
+		}
+
+	</script>
+</head>
+<body>
+	<h1>My page</h1>
+	<div id="div1">DIV 1 content...</div>
+	<button onclick="printContent('div1')">Print Content</button>
+		<div id="div2">DIV 2 content...</div>
+	<button onclick="printContent('div3')">Print Content</button>
+		<div id="div3">DIV 2 content...</div>
+	<button onclick="printContent('div3')">Print Content</button>
+</body>
+</html>

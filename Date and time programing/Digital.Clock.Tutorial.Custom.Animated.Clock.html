@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<title>Custom Animated Clock</title>
+	<style>
+		.clockStyle {
+		
+			background-color: #532727;
+				border: #999 2px inset;
+			padding: 6px;
+			color: #4cff00;
+			font-family: "Arial Black", Gadget, sans-serif;
+			font-size: 2vw;
+			font-weight: bold;
+			letter-spacing: 2px;
+			display: inline;
+			height:10vh;
+			width:15vw;
+		}
+	</style>
+</head>
+<body>
+	<div id="clockDisplay" class="clockStyle">
+	<script>
+		function renderTime() {
+			
+			var currentTime = new Date();
+			var diem = "AM";
+			var h = currentTime.getHours();
+			var m = currentTime.getMinutes();
+			var s = currentTime.getSeconds();
+			setTimeout("renderTime()", 1000);
+
+			//american style time
+			if (h == 0) {
+				h = 12;
+			} else if (h > 12) {
+				h = h - 12;
+				diem = "PM";
+			}
+
+			if (h < 10) {
+				h = "0" + h;
+			}
+			if (m < 10) {
+				m = "0" + m;
+			}
+			if (s < 10) {
+				s = "0" + s;
+			}
+
+			//koppla till elem
+			var myClock = document.getElementById("clockDisplay");
+			myClock.textContent = h + ":" + m + ":" + s + " " + diem;
+			//for IE
+			myClock.innerText = h + ":" + m + ":" + s + " " + diem;
+		}
+
+		renderTime();
+	</script>
+	</div>
+</body>
+</html>

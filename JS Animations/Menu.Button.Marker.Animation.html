@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Menu Button Marker Animation</title>
+	<style>
+		div#mycontent {
+			font-size: 18px;
+			border: #000 1px dashed;
+			width: 450px;
+			height: 250px;
+			padding: 20px;
+			background: green;
+			color:white;
+		}
+
+		div#mymenu > button {
+			padding: 10px 30px;
+		}
+
+		div#btn_marker {
+			position: absolute;
+			border: #000 1px solid;
+			border-bottom: none;
+			width: 0px;
+			height: 10px;
+			top: 67px;
+			display: none;
+			-webkit-transition: left .5s ease 0s, width .5s linear 0s;
+			transition: left .5s ease 0s, width .5s linear 0s;
+		}
+	</style>
+	<script>
+		function _(x) {
+			return document.getElementById(x);
+		}
+		function initMenu() {
+			_("btn_marker").style.left = _("btn1").offsetLeft + "px";
+			_("btn_marker").style.width = _("btn1").offsetWidth-2+ "px";
+			_("btn_marker").style.display = "block";
+		}
+		function loadContent(btn) {
+			_("btn_marker").style.left = btn.offsetLeft + "px";
+			_("btn_marker").style.width = btn.offsetWidth - 2 + "px";
+			_("mycontent").innerHTML = "Content for " + btn.innerHTML + " loaded";
+		}
+		window.addEventListener('load', function (event) { initMenu(); });
+	</script>
+</head>
+<body>
+	<h1>Animated Button Marker System</h1>
+	<div id="mymenu">
+		<div id="btn_marker"></div>
+		<button id="btn1" onclick="loadContent(this)">HTML5</button>
+		<button id="btn2" onclick="loadContent(this)">CSS</button>
+		<button id="btn3" onclick="loadContent(this)">JavaScript Program</button>
+		<button id="btn4" onclick="loadContent(this)">PHP</button>
+	</div>
+	<div id="mycontent">Content for HTML5</div>
+</body>
+</html>

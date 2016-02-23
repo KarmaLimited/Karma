@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Memory Game</title>
+	<style>
+		div#memory_board {
+			background: #CCC;
+			border: #999 1px solid;
+			width: 800px;
+			height: 540px;
+			padding: 24px;
+			margin: 0px auto;
+		}
+
+			div#memory_board > div {
+				background: url(006.jpg) no-repeat;
+				border: #000 1px solid;
+				width: 71px;
+				height: 71px;
+				float: left;
+				margin: 10px;
+				padding: 20px;
+				font-size: 64px;
+				cursor: pointer;
+				text-align: center;
+			}
+	</style>
+
+	<script>
+		var memory_array = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I', 'J', 'J', 'K', 'K', 'L', 'L'];
+		var memory_values = [];
+		var memory_tile_ids = [];
+		var tiles_flipped = 0;
+		Array.prototype.memory_tile_shuffle = function () {
+			var i = this.length, j, temp;
+			while (--i > 0) {
+				j = Math.floor(Math.random() * (i + 1));
+				temp = this[j];
+				this[j] = this[i];
+				this[i] = temp;
+			}
+		}
+		function newBoard() {
+			tiles_flipped = 0;
+			var output = '';
+			memory_array.memory_tile_shuffle();
+			for (var i = 0; i < memory_array.length; i++) {
+				output += '<div id="tile_' + i + '" onclick="memoryFlipTile(this,\'' + memory_array[i] + '\')"></div>';
+			}
+			document.getElementById('memory_board').innerHTML = output;
+		}
+		function memoryFlipTile(tile, val) {
+			if (tile.innerHTML == "" && memory_values.length < 2) {
+				tile.style.background = '#FFF';
+				tile.innerHTML = val;
+
+				//this main if checks if tiles are matches  
+				if (memory_values.length == 0) {
+					//if the value is 0 push in value and id
+					memory_values.push(val);
+					memory_tile_ids.push(tile.id);
+				} else if (memory_values.length == 1) {
+					//if there already a card flipped over
+					memory_values.push(val);
+					memory_tile_ids.push(tile.id);
+
+					//if both cards are a match
+					if (memory_values[0] == memory_values[1]) {
+						//add 2 to the tiles flipped array
+						tiles_flipped += 2;
+						// Clear both arrays
+						memory_values = [];
+						memory_tile_ids = [];
+
+						// Check to see if the whole board is cleared
+						if (tiles_flipped == memory_array.length) {
+							var res = confirm("Board cleared... Do you want to play again?");
+							if (res) {
+								document.getElementById('memory_board').innerHTML = "";
+								newBoard();
+							} else {
+								document.write("thx for playing");
+							}
+					
+						}
+						//the else condition flips back the tiles if there weren't a matchS
+					} else {
+						function flip2Back() {
+							// Flip the 2 tiles back over
+							var tile_1 = document.getElementById(memory_tile_ids[0]);
+							var tile_2 = document.getElementById(memory_tile_ids[1]);
+							tile_1.style.background = 'url(006.jpg) no-repeat';
+							tile_1.innerHTML = "";
+							tile_2.style.background = 'url(006.jpg) no-repeat';
+							tile_2.innerHTML = "";
+							// Clear both arrays
+							memory_values = [];
+							memory_tile_ids = [];
+						}
+						setTimeout(flip2Back, 700);
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="memory_board"></div>
+	<script>newBoard();</script>
+</body>
+</html>

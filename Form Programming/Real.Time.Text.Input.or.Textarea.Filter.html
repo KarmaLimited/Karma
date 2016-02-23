@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>real time text filtering</title>
+	<script>
+		function clean(e) {
+			//search the textfield to find unwanted chars
+			var textField = document.getElementById(e);
+			var regex = /[^a-ö 0-9?!.,]/gi; //inga special tecken tillåts alltså a-ö 0-9 ?!.,
+
+			if (textField.value.search(regex) > -1) {
+				document.getElementById('status').innerHTML = "match was found";
+				textField.value = textField.value.replace(regex, "");
+			} 
+		
+			//examples
+			//var regex = /cog/g; //globally replace cog with ""
+			//textField.value = textField.value.replace(regex, "");
+			var regex = /fuck/gi; //globally replace fuck with fugde (both upper and lowercase = /gi)
+			textField.value = textField.value.replace(regex, "fudge");
+
+		
+			textField.value = textField.value.replace(regex, "");
+
+		}
+
+	</script>
+</head>
+<body>
+	<textarea id="ta" onkeydown="clean('ta')" onkeyup="clean('ta')"></textarea>
+	<div id="status"></div>
+</body>
+</html>

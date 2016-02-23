@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Dual Image Reveal Control</title>
+	<style>
+		.reveal {
+			width: 768px;
+			height: 1024px;
+			border: #000 1px solid;
+			float: left;
+			margin: 24px;
+		}
+
+			.reveal > img {
+				position: absolute;
+			}
+
+			.reveal > .img2 {
+				clip: rect(0px, 422px, 1024px,0px); /* top, right, bottom, left */
+			}
+
+			.reveal > .activator {
+				position: absolute;
+				width: 768px;
+				height: 1024px;
+				background: #000; /*black*/
+				opacity: 0;
+				cursor: e-resize;
+			}
+
+		.reveal2 {
+			width: 399px;
+			height: 546px;
+			border: #000 1px solid;
+			float: left;
+			margin: 24px;
+		}
+
+			.reveal2 > img {
+				position: absolute;
+			}
+
+			.reveal2 > .img2 {
+				clip: rect(0px, 422px, 1024px,0px); /* top, right, bottom, left */
+			}
+
+			.reveal2 > .activator {
+				position: absolute;
+				width: 768px;
+				height: 1024px;
+				background: #000; /*black*/
+				opacity: 0;
+				cursor: e-resize;
+			}
+	</style>
+
+	<script>
+		function reveal(event) {
+			event.target.previousElementSibling.style.clip = "rect(0px, " + (event.clientX - event.target.offsetLeft) + "px, 1024px, 0px)";
+		}
+	</script>
+</head>
+
+<body>
+	<div id="pic2" class="reveal2">
+		<img src="4.png" />
+		<img class="img2" src="3.png" />
+		<div class="activator" onmousemove="reveal(event)"></div>
+	</div>
+	<div class="reveal">
+		<img class="img2" src="2.gif" />
+		<div class="activator" onmousemove="reveal(event)">
+			<img src="1.jpg" />
+		</div>
+	</div>
+</body>
+</html>

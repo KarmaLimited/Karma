@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>2D Context Object and Rectangle Methods</title>
+	<style>
+		body {margin:40px; background:#666;		}
+		#my_canvas {background:#FFF; border:#000 1px solid;	}
+	
+		</style>
+	<script>
+		var leather = new Image();
+		leather.src = "leather.jpg";
+
+		function draw() {
+			var ctx = document.getElementById("my_canvas").getContext('2d');
+			//alert(ctx.canvas.id+" | " + ctx.canvas.width + " | " + ctx.canvas.height);
+			//ctx.fillStyle = color || #hex || rgba() || gradient || pattern
+
+			var g1 = ctx.createLinearGradient(0, 0, 200, 0);
+			g1.addColorStop(0, "magenta");
+			g1.addColorStop(0.5, "yellow");
+			g1.addColorStop(1, "black");
+
+			//ctx.fillStyle = "rgba(0,200,0,.5)";
+			ctx.fillStyle = g1;
+			ctx.strokeStyle = "rgba(0,200,0,.5)";
+			ctx.lineWidth = "10";
+			ctx.fillRect(0, 0, 200, 200);
+			ctx.strokeRect(0, 0, 200, 200);
+
+			/*var g2 = ctx.createLinearGradient(250, 200, 450, 200);
+			g2.addColorStop(0, "pink");
+			g2.addColorStop(0.5, "blue");
+			g2.addColorStop(1, "orange");
+			ctx.fillStyle = g2;
+			ctx.strokeStyle = "rgba(100,800,300,.5)";
+			ctx.lineWidth = "10";
+			ctx.fillRect(250, 0, 200, 200);
+			ctx.strokeRect(250, 0, 200, 200);*/
+
+			var g2 = ctx.createRadialGradient(350, 100, 0, 350, 100, 200);
+			g2.addColorStop(0, "red");
+			g2.addColorStop(0.5, "yellow");
+			g2.addColorStop(1, "blue");
+			ctx.fillStyle = g2;
+			ctx.fillRect(250, 0, 200, 200);
+			ctx.strokeRect(250, 0, 200, 200);
+
+			var pattern = ctx.createPattern(leather, "repeat");
+			ctx.fillStyle = pattern;
+			ctx.fillRect(0, 250, 200, 200);
+			ctx.lineWidth = 10;
+			ctx.strokeStyle = g1;
+			ctx.strokeRect(0, 250, 200, 200);
+			ctx.fill();
+		}
+		window.onload = draw;
+	</script>
+</head>
+<body>
+<canvas id="my_canvas" width="700" height="500"></canvas>
+</body>
+</html>
